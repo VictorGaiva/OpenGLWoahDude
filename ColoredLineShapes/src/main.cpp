@@ -10,7 +10,7 @@ int main()
 {
     sf::Color backgroundColor(230,230,230,255);    
     sf::RenderWindow window(sf::VideoMode(800, 600), "LineShapes");
-    class WeightedLine line1(50.0, 50.0, 100.0, 100.0, 0.0, sf::Color(sf::Color::Black));
+    class WeightedLine line1(50.0, 50.0, 100.0, 100.0, 1.0, sf::Color(sf::Color::Black));
     class WeightedLine line2(100.0, 100.0, 150.0, 25.0, 8.0, sf::Color(sf::Color::Black));
 
     // change the position of the window (relatively to tmahe desktop)
