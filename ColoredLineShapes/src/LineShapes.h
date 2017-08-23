@@ -6,12 +6,16 @@
 
 #include <math.h>
 
+#define TWO_PI 2*M_PI
+
 class LineShapes : public sf::Drawable, public sf::Transformable{
+public:
     LineShapes(sf::Vector2f, float, unsigned int);
-    ~LineShapes();
+    ~LineShapes(){}
 private:
     virtual void draw(sf::RenderTarget &, sf::RenderStates) const;
     sf::VertexArray vertices;
+    sf::Vector2f screenPos;
 };
 
 #endif // !LINESHAPES_H

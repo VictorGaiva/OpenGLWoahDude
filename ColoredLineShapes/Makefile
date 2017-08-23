@@ -3,7 +3,7 @@ OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
 LD_FLAGS := -lsfml-graphics -lsfml-window -lsfml-system
 CC_FLAGS := 
 
-main: $(OBJ_FILES)
+main: $(clear) $(OBJ_FILES)
 	g++ $^ $(LD_FLAGS) -o $@
 
 obj/%.o: src/%.cpp

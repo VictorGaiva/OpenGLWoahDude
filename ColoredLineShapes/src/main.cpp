@@ -9,6 +9,7 @@ int main()
 {
     sf::Color backgroundColor(230,230,230,255);    
     sf::RenderWindow window(sf::VideoMode(800, 600), "LineShapes");
+    class LineShapes line(sf::Vector2f(400, 300), 100.0, 8);
 
     // change the position of the window (relatively to tmahe desktop)
     window.setPosition(sf::Vector2i(10, 50));
@@ -25,6 +26,7 @@ int main()
         window.clear(backgroundColor);
         
         //draw the lines
+        window.draw(line);
 
         //finish frame
         window.display();
@@ -41,6 +43,8 @@ void handleEvents(sf::RenderWindow *window ){
         // "close requested" event: we close the window
         if (event.type == sf::Event::Closed){
             window->close();
+        }
+        if (event.type == sf::Event::MouseButtonPressed){
         }
     }
 }
