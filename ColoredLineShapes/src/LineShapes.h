@@ -5,17 +5,29 @@
 #include <SFML/Graphics.hpp>
 
 #include <math.h>
+#include <iostream>
+
+#include "WeightedLine.h"
 
 #define TWO_PI 2*M_PI
 
 class LineShapes : public sf::Drawable, public sf::Transformable{
 public:
-    LineShapes(sf::Vector2f, float, unsigned int);
+    LineShapes(sf::Vector2f, float, unsigned int, float );
     ~LineShapes(){}
+
+    //
+    bool setColorAt(sf::Color, unsigned int);
+    sf::Color getColorAt(unsigned int);
+
 private:
     virtual void draw(sf::RenderTarget &, sf::RenderStates) const;
+    
     sf::VertexArray vertices;
     sf::Vector2f screenPos;
+    
+    float thickness;
+    sf::Color defaultColor;
 };
 
 #endif // !LINESHAPES_H

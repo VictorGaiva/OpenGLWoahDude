@@ -9,12 +9,10 @@ int main()
 {
     sf::Color backgroundColor(230,230,230,255);    
     sf::RenderWindow window(sf::VideoMode(800, 600), "LineShapes");
-    class LineShapes line(sf::Vector2f(400, 300), 100.0, 8);
+    class LineShapes line(sf::Vector2f(400, 300), 100.0, 8, 2.0);
 
     // change the position of the window (relatively to tmahe desktop)
     window.setPosition(sf::Vector2i(10, 50));
-    int i = 0;
-
     //Setting up
     // run the program as long as the window is open
     while (window.isOpen())
@@ -45,6 +43,16 @@ void handleEvents(sf::RenderWindow *window ){
             window->close();
         }
         if (event.type == sf::Event::MouseButtonPressed){
+        }
+        if (event.type == sf::Event::KeyPressed){
+            switch (event.key.code){
+                case sf::Keyboard::Escape:
+                    std::cout << "Escape key pressed." << std::endl;
+                    window->close();
+                    break;
+                default:
+                    std::cout << "Some key was pressed." << std::endl;
+            }
         }
     }
 }
