@@ -9,8 +9,11 @@ int main()
 {
     sf::Color backgroundColor(230,230,230,255);    
     sf::RenderWindow window(sf::VideoMode(800, 600), "LineShapes");
-    class LineShapes line(sf::Vector2f(400, 300), 100.0, 8, 2.0);
+    std::vector<class LineShapes> lines;
 
+    for(int i = 3; i < 13; i++)
+        lines.push_back(LineShapes(sf::Vector2f(400, 300), float(i*20), i, 4.0, sf::Color::Cyan));
+    
     // change the position of the window (relatively to tmahe desktop)
     window.setPosition(sf::Vector2i(10, 50));
     //Setting up
@@ -24,8 +27,9 @@ int main()
         window.clear(backgroundColor);
         
         //draw the lines
-        window.draw(line);
-
+        for(int i = 0; i < lines.size(); i++)
+            window.draw(lines[i]);
+        
         //finish frame
         window.display();
     }
